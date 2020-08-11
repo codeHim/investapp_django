@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 class FundsList(generics.ListCreateAPIView):
-    queryset = Funds.objects.all()[:100]
+    queryset = Funds.objects.all()
     serializer_class = FundsSerializer
 
 class FundsChange(generics.RetrieveUpdateDestroyAPIView):
@@ -23,13 +23,6 @@ class FundsChange(generics.RetrieveUpdateDestroyAPIView):
 class InvestList(generics.ListCreateAPIView):
     queryset = Investment.objects.all()
     serializer_class = InvestSerializer
-
-# @csrf_exempt
-# class calculateCurrentValue(APIView):
-#     def post(self,request):
-#         scheme_code = request.POST.get('scheme_code')
-#         print(scheme_code)
-#         return HttpResponse(status=200)
 
 @csrf_exempt
 @api_view(['POST'])
@@ -50,6 +43,4 @@ def calculateCurrentValue(request):
         return HttpResponse(current_value)
     else:
         return HttpResponse(0)
-
-    #print(scheme_code['fund_id'])
     

@@ -1,5 +1,4 @@
 from django.db import models
-#Scheme Code;Scheme Name;ISIN Div Payout/ISIN Growth;ISIN Div Reinvestment;Net Asset Value;Repurchase Price;Sale Price;Date
 class Funds(models.Model):
     fund_id = models.AutoField(primary_key=True)
     scheme_code = models.CharField(max_length=10)
